@@ -1,0 +1,15 @@
+version: "3"
+services:
+  queue:
+    image: webcenter/activemq
+    ports:
+      - 5672:5672
+      - 5001:8161
+    environment:
+      - ACTIVEMQ_ADMIN_LOGIN=admin
+      - ACTIVEMQ_ADMIN_PASSWORD=admin
+      - ACTIVEMQ_USERS_admin=admin
+      - ACTIVEMQ_GROUPS_writes=admin
+      - ACTIVEMQ_GROUPS_reads=admin
+    volumes:
+      - ./queue/data:/data
